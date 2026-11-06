@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escapa de Beyoncé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Header Section -->
+    <header class="text-center mb-4 max-w-2xl w-full">
+        <h1 class="text-xl md:text-2xl font-bold tracking-wider mb-2 text-[#535353]">ESCAPA DE BEYONCÉ</h1>
+        <p class="text-xs text-gray-500 leading-relaxed"> !!!!! <span class="text-black bg-gray-200 px-1 border border-gray-400">ESPACIO / ▲</span> Saltar | <span class="text-black bg-gray-200 px-1 border border-gray-400">SHIFT</span> Boost
+        </p>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="relative max-w-3xl w-full flex flex-col items-center">
+        <!-- Canvas Container -->
+        <div class="relative w-full overflow-hidden bg-[#f7f7f7] border-b-4 border-[#535353] rounded-t-lg">
+            <canvas id="gameCanvas" width="800" height="250" class="w-full h-auto block"></canvas>
+
+            <!-- Boost Cooldown Meter Overlay -->
+            <div class="absolute top-3 left-4 flex items-center gap-2 bg-white/80 border border-[#535353] px-2 py-1 text-[10px]">
+                <span class="font-bold text-[#535353]">BOOST (SHIFT):</span>
+                <div class="w-24 h-3 bg-gray-300 border border-[#535353] relative overflow-hidden">
+                    <div id="boostBar" class="h-full bg-emerald-500 w-full transition-all duration-75"></div>
+                </div>
+                <span id="boostText" class="font-bold text-emerald-600 min-w-[45px]">LISTO</span>
+            </div>
+
+            <!-- Start / Game Over Overlay -->
+            <div id="gameOverScreen" class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-10">
+                <div class="text-center p-4">
+                    <p id="gameOverTitle" class="text-lg md:text-xl font-bold mb-2 text-[#535353]">¡PRESIONA ESPACIO O HAZ CLIC PARA EMPEZAR!</p>
+                    <p id="gameOverReason" class="text-xs mb-6 text-gray-600">Salta los cactus y usa SHIFT para escapar de Beyoncé</p>
+
+                    <button id="restartBtn" class="pixel-btn px-4 py-2 text-xs uppercase font-bold tracking-widest rounded-none">
+                        ► EMPEZAR JUEGO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard / Controls Box -->
+        <div class="w-full bg-gray-100 border-2 border-[#535353] p-4 mt-4 rounded-b-lg flex flex-col gap-4">
+
+            <!-- Controls Title & Sound Toggle -->
+            <div class="flex justify-between items-center text-xs border-b-2 border-gray-300 pb-2">
+                <span class="font-bold">⚙️ CONFIGURACIÓN Y CONTROLES</span>
+                <button id="soundToggle" class="text-xs underline text-gray-600 hover:text-black">🔊 SONIDO: ON</button>
+            </div>
+
+            <!-- Sliders Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="flex flex-col gap-2 bg-white p-3 border border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <label for="playerSpeed" class="font-bold text-gray-700">Velocidad Jugador:</label>
+                        <span id="playerSpeedValue" class="text-gray-900 font-mono">1.0x</span>
+                    </div>
+                    <input type="range" id="playerSpeed" min="0.5" max="2.5" step="0.1" value="1.0" class="w-full">
+                </div>
+
+                <div class="flex flex-col gap-2 bg-white p-3 border border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <label for="beyonceSpeed" class="font-bold text-gray-700">Velocidad Beyoncé:</label>
+                        <span id="beyonceSpeedValue" class="text-gray-900 font-mono">1.0x</span>
+                    </div>
+                    <input type="range" id="beyonceSpeed" min="0.5" max="2.5" step="0.1" value="1.0" class="w-full">
+                </div>
+            </div>
+
+            <!-- Touch Controls for Mobile -->
+            <div class="grid grid-cols-2 gap-2 md:hidden text-center mt-1">
+                <button id="touchJumpBtn" class="pixel-btn py-4 text-xs font-bold tracking-widest">
+                    ▲ SALTAR
+                </button>
+                <button id="touchBoostBtn" class="pixel-btn bg-emerald-700 py-4 text-xs font-bold tracking-widest">
+                    ⚡ BOOST (SHIFT)
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-6 text-center text-[10px] text-gray-400">
+       Inspirado en el juego de dinosaurio de Google Chrome. Desarrollado por Emmanuel y mis dos amigas ChatGPT y ClaudeIA porque para que me voy a hacer el santo y decir que yo solo lo hice jeje <a href="
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
